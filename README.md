@@ -2,8 +2,11 @@
 from zero to dev
 ## Intro
 What? How? Why Java?
-## Blog top
-https://www.baeldung.com
+## Resources
+- https://www.baeldung.com
+- https://spring.io/projects/spring-boot
+- https://github.com/spring-io/initializr
+- MVC vs Reactive: https://spring.io/reactive
 ## Setup environment
 IDE: Eclipse, IntelliJ and VsCode
 ### Setup new origin
