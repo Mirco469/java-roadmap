@@ -6,7 +6,7 @@
             "name": "RoadmapApplication",
             "request": "launch",
             "mainClass": "net.ielpo.roadmap.RoadmapApplication",
-            "projectName": "java-roadmap"
+            "projectName": "roadmap"
         },
         {
             "type": "java",
