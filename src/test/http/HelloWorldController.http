@@ -2,5 +2,5 @@
 ###
 #
 ###
-GET {{baseUrl}}/hello-world
+GET {{baseUrl}}/hello-world/pippo?id=10
 Accept: application/json

@@ -30,3 +30,10 @@ https://start.spring.io/
 # start
 ./gradlew bootRun
 ```
+### Basic spring keywords
+- @Autowired
+- @Component
+- @Service
+- @Repository
+- @Configuration
+- @Bean
