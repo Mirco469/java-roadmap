@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import net.ielpo.roadmap.config.Const;
 import net.ielpo.roadmap.dto.HelloWorldResponseDto;
 
 /**
@@ -31,18 +30,14 @@ public class HelloWorldController {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @GetMapping(value = "{id-path}")
+    @GetMapping(value = "{idPath}")
     public ResponseEntity<String> getHello(@RequestParam(value = "id") String id,
-            @PathVariable(value = "id-path") String idPath) {
+            @PathVariable(value = "idPath") String idPath) throws Exception {
         logger.info("this is an id: {} - idPath: {}", id, idPath);
 
         HelloWorldResponseDto responseDto = new HelloWorldResponseDto("hello world");
-        try {
-            String responseBody = this.objectMapper.writeValueAsString(responseDto);
-            return new ResponseEntity<String>(responseBody, HttpStatusCode.valueOf(200));
-        } catch (Exception e) {
-            return new ResponseEntity<String>(Const.GENERIC_ERROR, HttpStatusCode.valueOf(500));
-        }
+        String responseBody = this.objectMapper.writeValueAsString(responseDto);
+        return new ResponseEntity<String>(responseBody, HttpStatusCode.valueOf(200));
 
     }
 
