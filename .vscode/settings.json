@@ -11,14 +11,14 @@
     },
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms512m -Xlog:disable",
     "gradle.nestedProjects": true,
-    "java.jdt.ls.java.home": "~/dev/sw/jdk-17.0.5",
+    "java.jdt.ls.java.home": "C:/Program Files/OpenLogic/jdk-17.0.9.9-hotspot",
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-17",
-            "path": "~/dev/sw/jdk-17.0.5"
+            "path": "C:/Program Files/OpenLogic/jdk-17.0.9.9-hotspot"
         }
     ],
-    "java.import.gradle.java.home": "~/dev/sw/jdk-17.0.5",
+    "java.import.gradle.java.home": "C:/Program Files/OpenLogic/jdk-17.0.9.9-hotspot",
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
