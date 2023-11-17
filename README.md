@@ -7,6 +7,7 @@ What? How? Why Java?
 - https://spring.io/projects/spring-boot
 - https://github.com/spring-io/initializr
 - MVC vs Reactive: https://spring.io/reactive
+- https://gradle.org/guides/
 ## Setup environment
 IDE: Eclipse, IntelliJ and VsCode
 ### Setup new origin

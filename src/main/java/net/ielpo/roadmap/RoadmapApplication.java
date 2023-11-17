@@ -10,8 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RoadmapApplication {
 
-    public static void main(String[] args) throws Exception {
-        Thread.sleep(4000);
+    public static void main(String[] args) {
         SpringApplication.run(RoadmapApplication.class, args);
     }
 

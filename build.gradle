@@ -31,6 +31,6 @@ tasks.named('test') {
 bootRun {
     jvmArgs=[
         "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000",
-        "-Dspring.application.name=roadmap"]
+        "-Dspring.application.name=java-roadmap"]
     args = ["--spring.profiles.active=local"]
 }
