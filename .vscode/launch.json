@@ -6,7 +6,7 @@
             "name": "RoadmapApplication",
             "request": "launch",
             "mainClass": "net.ielpo.roadmap.RoadmapApplication",
-            "projectName": "roadmap"
+            "projectName": "java-roadmap"
         },
         {
             "type": "java",
@@ -14,7 +14,7 @@
             "request": "attach",
             "hostName": "localhost",
             "port": 8000,
-            "projectName": "roadmap"
+            "projectName": "java-roadmap"
         }
     ]
 }
