@@ -1,11 +1,9 @@
 package net.ielpo.roadmap.dto;
 
-import java.io.Serializable;
-
 /**
  * @author Alberto Ielpo
  */
-public class HelloWorldResponseDto implements Serializable {
+public class HelloWorldResponseDto extends BaseResponseOkDto {
 
     private String value;
 
