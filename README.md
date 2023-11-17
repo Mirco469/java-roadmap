@@ -16,3 +16,12 @@ naco-siren.gradle-language
 dgileadi.java-decompiler
 ## Maven vs Gradle
 Package management
+## Setup spring MVC project
+https://start.spring.io/
+### Command
+```
+# build
+./gradlew build
+# start
+./gradlew bootRun
+```
