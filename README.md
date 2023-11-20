@@ -72,6 +72,10 @@ https://start.spring.io/
 └── util
     └── utils
 ```
+## Spring libs (servlet containers + api)
+- Spring security
+- Spring MVC (web)
+- Spring Data (JDBC, JPA)
 ## Exercises
 ### Concatenate String
 ```
@@ -204,5 +208,9 @@ public class AddToListClass {
 
 ## Mini project
 @see exercises/mini-project.txt
-## Reactive stack
-TODO
+# Reactive stack
+Differences and usage
+## Spring libs (netty containers + streams)
+- Spring security reactive
+- Spring WebFlux
+- Spring Data Reactive(r2dbc, redis, mongo)
