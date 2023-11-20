@@ -1,14 +1,14 @@
 # Java roadmap
-from zero to dev
+From zero to dev
 ## Intro
-What? How? Why Java?
+What is Java? When use it? Why use it? Stack, Heap, Static and garbage collector
 ## Resources
-- https://www.baeldung.com
-- https://spring.io/projects/spring-boot
-- https://github.com/spring-io/initializr
+- Getting started: https://spring.io/projects/spring-boot
+- Blog: https://www.baeldung.com
+- Spring Doc: https://docs.spring.io/spring-framework/reference/overview.html
 - MVC vs Reactive: https://spring.io/reactive
-- https://gradle.org/guides/
-- https://mvnrepository.com/
+- Maven repository: https://mvnrepository.com/
+- Gradle guide: https://gradle.org/guides/
 ## Setup environment
 IDE: Eclipse, IntelliJ and VsCode
 ### Setup new origin
@@ -22,7 +22,8 @@ dgileadi.java-decompiler
 ## Maven vs Gradle
 Package management
 ## Setup spring MVC project
-https://start.spring.io/
+- Init new project: https://start.spring.io/
+- Code examples: https://github.com/spring-io/initializr
 ### Command
 ```
 # build
