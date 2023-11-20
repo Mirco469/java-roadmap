@@ -8,12 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.ielpo.roadmap.dto.HelloWorldRequestDto;
 import net.ielpo.roadmap.dto.HelloWorldResponseDto;
 import net.ielpo.roadmap.factory.ResponseFactory;
 
@@ -48,4 +51,10 @@ public class HelloWorldController {
         return ResponseFactory.ok(responseDto);
     }
 
+    @PutMapping(value = "some-url/{idPath}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> putHello(@PathVariable(value = "idPath") String idPath,
+            @RequestBody HelloWorldRequestDto payload)
+            throws Exception {
+        return ResponseFactory.ok(payload);
+    }
 }

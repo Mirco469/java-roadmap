@@ -4,3 +4,13 @@
 ###
 GET {{baseUrl}}/hello-world/pippo?id=10
 Accept: application/json
+
+###
+#
+###
+PUT {{baseUrl}}/hello-world/some-url/pippo
+content-type: application/json
+
+{
+    "payload": [1]
+}
