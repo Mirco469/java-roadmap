@@ -1,5 +1,8 @@
 package net.ielpo.roadmap.config;
 
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,5 +20,16 @@ public class CommonBean {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return mapper;
+    }
+
+    @Bean
+    @Qualifier("startup")
+    Date getStartup() {
+        return new Date();
+    }
+
+    @Bean
+    Date getStartup2() {
+        return new Date("2020/11/20");
     }
 }

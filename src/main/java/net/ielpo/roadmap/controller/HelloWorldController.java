@@ -1,8 +1,11 @@
 package net.ielpo.roadmap.controller;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -33,9 +36,15 @@ public class HelloWorldController {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    @Qualifier("startup")
+    private Date pluto;
+
     @GetMapping(value = "{idPath}")
     public ResponseEntity<String> getHello(@RequestParam(value = "id") String id,
             @PathVariable(value = "idPath") String idPath) throws Exception {
+
+        logger.info("The time is {}", pluto.getTime());
         logger.info("this is an id: {} - idPath: {}", id, idPath);
 
         /** manually use fasterxml... */
