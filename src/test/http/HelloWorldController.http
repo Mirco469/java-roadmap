@@ -1,0 +1,6 @@
+@baseUrl = http://localhost:8080
+###
+#
+###
+GET {{baseUrl}}/hello-world/pippo?id=10
+Accept: application/json
