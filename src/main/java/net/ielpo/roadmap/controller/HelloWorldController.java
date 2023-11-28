@@ -1,5 +1,7 @@
 package net.ielpo.roadmap.controller;
 
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.ielpo.roadmap.dto.HelloWorldResponseDto;
+import net.ielpo.roadmap.exception.CustomRuntimeException;
+import net.ielpo.roadmap.exception.UnsupportedParameterException;
 import net.ielpo.roadmap.factory.ResponseFactory;
 
 /**
@@ -32,8 +36,16 @@ public class HelloWorldController {
 
     @GetMapping(value = "{idPath}")
     public ResponseEntity<String> getHello(@RequestParam(value = "id") String id,
-            @PathVariable(value = "idPath") String idPath) throws Exception {
+            @PathVariable(value = "idPath") String idPath) throws IOException, UnsupportedParameterException {
         logger.info("this is an id: {} - idPath: {}", id, idPath);
+
+        if ("pluto".equalsIgnoreCase(idPath)) {
+            throw new UnsupportedParameterException("pippo is not supported");
+        }
+
+        if ("paperino".equalsIgnoreCase(idPath)) {
+            throw new CustomRuntimeException("paperino is not supported");
+        }
 
         /** manually use fasterxml... */
         String simulatedBody = "{\"value\": \"this is my value\"}";

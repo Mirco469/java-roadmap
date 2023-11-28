@@ -4,3 +4,16 @@
 ###
 GET {{baseUrl}}/hello-world/pippo?id=10
 Accept: application/json
+
+###
+# Exception raised
+###
+GET {{baseUrl}}/hello-world/pluto?id=10
+Accept: application/json
+
+
+###
+# Exception raised
+###
+GET {{baseUrl}}/hello-world/paperino?id=10
+Accept: application/json
