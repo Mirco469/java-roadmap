@@ -18,10 +18,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.ielpo.roadmap.annotation.LogAround;
 import net.ielpo.roadmap.dto.HelloWorldResponseDto;
+import net.ielpo.roadmap.dto.RateDto;
 import net.ielpo.roadmap.exception.CustomRuntimeException;
 import net.ielpo.roadmap.exception.UnsupportedParameterException;
 import net.ielpo.roadmap.factory.ResponseFactory;
 import net.ielpo.roadmap.service.HelloWorldService;
+import net.ielpo.roadmap.service.RateService;
 import net.ielpo.roadmap.util.DateUtils;
 
 /**
@@ -39,6 +41,9 @@ public class HelloWorldController {
 
     @Autowired
     private HelloWorldService helloWorldService;
+
+    @Autowired
+    private RateService rateService;
 
     @LogAround
     @GetMapping(value = "{idPath}")
@@ -70,6 +75,13 @@ public class HelloWorldController {
         // ErrorResponseDto errorResponseDto = new ErrorResponseDto("this is an error");
 
         return ResponseFactory.ok(responseDto);
+    }
+
+    @GetMapping(value = "rate")
+    public ResponseEntity<String> getRate() throws IOException, InterruptedException {
+        this.logger.info("get rate...");
+        RateDto rateDto = this.rateService.getRate();
+        return ResponseFactory.ok(rateDto);
     }
 
 }
