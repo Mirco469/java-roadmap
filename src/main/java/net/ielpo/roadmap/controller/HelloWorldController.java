@@ -20,6 +20,7 @@ import net.ielpo.roadmap.dto.HelloWorldResponseDto;
 import net.ielpo.roadmap.exception.CustomRuntimeException;
 import net.ielpo.roadmap.exception.UnsupportedParameterException;
 import net.ielpo.roadmap.factory.ResponseFactory;
+import net.ielpo.roadmap.util.DateUtils;
 
 /**
  * @author Alberto Ielpo
@@ -38,6 +39,9 @@ public class HelloWorldController {
     public ResponseEntity<String> getHello(@RequestParam(value = "id") String id,
             @PathVariable(value = "idPath") String idPath) throws IOException, UnsupportedParameterException {
         logger.info("this is an id: {} - idPath: {}", id, idPath);
+
+        logger.info("Now is {}", DateUtils.isoDate());
+        logger.info("Unix milli {}", DateUtils.unixTimestamp());
 
         if ("pluto".equalsIgnoreCase(idPath)) {
             throw new UnsupportedParameterException("pippo is not supported");
