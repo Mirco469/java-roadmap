@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.ielpo.roadmap.annotation.LogAround;
 import net.ielpo.roadmap.dto.HelloWorldResponseDto;
 import net.ielpo.roadmap.exception.CustomRuntimeException;
 import net.ielpo.roadmap.exception.UnsupportedParameterException;
 import net.ielpo.roadmap.factory.ResponseFactory;
+import net.ielpo.roadmap.service.HelloWorldService;
 import net.ielpo.roadmap.util.DateUtils;
 
 /**
@@ -35,6 +37,10 @@ public class HelloWorldController {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private HelloWorldService helloWorldService;
+
+    @LogAround
     @GetMapping(value = "{idPath}")
     public ResponseEntity<String> getHello(@RequestParam(value = "id") String id,
             @PathVariable(value = "idPath") String idPath) throws IOException, UnsupportedParameterException {
@@ -42,6 +48,8 @@ public class HelloWorldController {
 
         logger.info("Now is {}", DateUtils.isoDate());
         logger.info("Unix milli {}", DateUtils.unixTimestamp());
+
+        this.helloWorldService.executeSomething();
 
         if ("pluto".equalsIgnoreCase(idPath)) {
             throw new UnsupportedParameterException("pippo is not supported");
