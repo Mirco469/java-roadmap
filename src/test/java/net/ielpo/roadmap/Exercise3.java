@@ -1,6 +1,6 @@
 package net.ielpo.roadmap;
 
-public class Excercise3 {
+public class Exercise3 {
     public static void asciiArt() {
         Integer totalRows = 10;
 
