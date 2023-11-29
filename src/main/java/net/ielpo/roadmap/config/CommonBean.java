@@ -1,5 +1,6 @@
 package net.ielpo.roadmap.config;
 
+import java.net.http.HttpClient;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,5 +32,10 @@ public class CommonBean {
     @Bean
     Date getStartup2() {
         return new Date("2020/11/20");
+    }
+
+    @Bean
+    public HttpClient getHttpClient() {
+        return HttpClient.newHttpClient();
     }
 }

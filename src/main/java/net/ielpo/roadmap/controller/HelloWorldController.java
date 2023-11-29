@@ -1,5 +1,6 @@
 package net.ielpo.roadmap.controller;
 
+import java.io.IOException;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -19,9 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.ielpo.roadmap.annotation.LogAround;
 import net.ielpo.roadmap.dto.HelloWorldRequestDto;
 import net.ielpo.roadmap.dto.HelloWorldResponseDto;
+import net.ielpo.roadmap.dto.RateDto;
+import net.ielpo.roadmap.exception.CustomRuntimeException;
+import net.ielpo.roadmap.exception.UnsupportedParameterException;
 import net.ielpo.roadmap.factory.ResponseFactory;
+import net.ielpo.roadmap.service.HelloWorldService;
+import net.ielpo.roadmap.service.RateService;
+import net.ielpo.roadmap.util.DateUtils;
 
 /**
  * @author Alberto Ielpo
@@ -40,12 +48,31 @@ public class HelloWorldController {
     @Qualifier("startup")
     private Date pluto;
 
+    private HelloWorldService helloWorldService;
+
+    @Autowired
+    private RateService rateService;
+
+    @LogAround
     @GetMapping(value = "{idPath}")
     public ResponseEntity<String> getHello(@RequestParam(value = "id") String id,
-            @PathVariable(value = "idPath") String idPath) throws Exception {
+            @PathVariable(value = "idPath") String idPath) throws IOException, UnsupportedParameterException {
 
         logger.info("The time is {}", pluto.getTime());
         logger.info("this is an id: {} - idPath: {}", id, idPath);
+
+        logger.info("Now is {}", DateUtils.isoDate());
+        logger.info("Unix milli {}", DateUtils.unixTimestamp());
+
+        this.helloWorldService.executeSomething();
+
+        if ("pluto".equalsIgnoreCase(idPath)) {
+            throw new UnsupportedParameterException("pippo is not supported");
+        }
+
+        if ("paperino".equalsIgnoreCase(idPath)) {
+            throw new CustomRuntimeException("paperino is not supported");
+        }
 
         /** manually use fasterxml... */
         String simulatedBody = "{\"value\": \"this is my value\"}";
@@ -66,4 +93,12 @@ public class HelloWorldController {
             throws Exception {
         return ResponseFactory.ok(payload);
     }
+
+    @GetMapping(value = "rate")
+    public ResponseEntity<String> getRate() throws IOException, InterruptedException {
+        this.logger.info("get rate...");
+        RateDto rateDto = this.rateService.getRate();
+        return ResponseFactory.ok(rateDto);
+    }
+
 }

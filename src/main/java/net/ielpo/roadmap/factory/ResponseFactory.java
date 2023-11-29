@@ -1,5 +1,7 @@
 package net.ielpo.roadmap.factory;
 
+import java.io.IOException;
+
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
@@ -23,7 +25,7 @@ public class ResponseFactory {
      * @return
      * @throws Exception
      */
-    public static <T extends BaseResponseOkDto> ResponseEntity<String> ok(T responseDto) throws Exception {
+    public static <T extends BaseResponseOkDto> ResponseEntity<String> ok(T responseDto) throws IOException {
         String body = ResponseFactory.objectMapper.writeValueAsString(responseDto);
         return new ResponseEntity<String>(body, HttpStatusCode.valueOf(200));
     }

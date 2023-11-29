@@ -14,3 +14,22 @@ content-type: application/json
 {
     "payload": [1]
 }
+
+# Exception raised
+###
+GET {{baseUrl}}/hello-world/pluto?id=10
+Accept: application/json
+
+
+###
+# Exception raised
+###
+GET {{baseUrl}}/hello-world/paperino?id=10
+Accept: application/json
+
+
+###
+# Get rate
+###
+GET {{baseUrl}}/hello-world/rate
+Accept: application/json
