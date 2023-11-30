@@ -48,6 +48,7 @@ public class HelloWorldController {
     @Qualifier("startup")
     private Date pluto;
 
+    @Autowired
     private HelloWorldService helloWorldService;
 
     @Autowired
@@ -63,6 +64,9 @@ public class HelloWorldController {
 
         logger.info("Now is {}", DateUtils.isoDate());
         logger.info("Unix milli {}", DateUtils.unixTimestamp());
+        logger.info("Iso date into LocalDateTime {}", DateUtils.isoDateIntoLocalDateTime(DateUtils.isoDate()));
+        logger.info("Unix milli into LocalDateTime {}",
+                DateUtils.unixMilliIntoLocalDateTime(DateUtils.unixTimestamp()));
 
         this.helloWorldService.executeSomething();
 
